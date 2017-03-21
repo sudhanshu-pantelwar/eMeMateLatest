@@ -5,7 +5,10 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RoomsPage } from '../pages/rooms/rooms';
 import { CategoryPage } from '../pages/category/category';
-import { Loginprovider } from '../providers/loginprovider'
+import { SettingsPage } from '../pages/settings/settings';
+import { DevicesPage } from '../pages/devices/devices';
+import { Loginprovider } from '../providers/loginprovider';
+
 
 @NgModule({
   declarations: [
@@ -13,7 +16,9 @@ import { Loginprovider } from '../providers/loginprovider'
     HomePage,
     LoginPage,
     CategoryPage,
-    RoomsPage
+    RoomsPage,
+    SettingsPage,
+    DevicesPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -24,7 +29,9 @@ import { Loginprovider } from '../providers/loginprovider'
     HomePage,
     LoginPage,
     CategoryPage,
-    RoomsPage
+    RoomsPage,
+    SettingsPage,
+    DevicesPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Loginprovider]
 })

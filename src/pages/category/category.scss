@@ -1,6 +1,16 @@
 page-category {
 		ion-scroll {
-  white-space: nowrap;
-  height: 150px
+          white-space: nowrap;
+          height: 150px
+        }
+    ion-item{
+      padding-left: 50px;
+      img {
+    //border: 1px solid #ddd;
+    //border-radius: 2px;
+    padding-top: 8px;
+    padding-right: 10px;
+    width: 25px;
 }
+    }
 			}

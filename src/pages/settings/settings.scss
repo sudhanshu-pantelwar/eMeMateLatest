@@ -1,0 +1,47 @@
+.md, .ios{
+    page-settings {
+    // $background-color: blue; //#DCDCDC;
+    // $background-ios-color: blue;
+    // $background-md-color: blue;
+    // $background-wp-color: blue;
+    ion-content{
+        background-color: #DCDCDC;
+       
+    }
+    .image{
+        width: 100px;
+        padding: 10px;
+    }
+    .image1{
+        width: 50px;
+        padding: 10px; 
+    }
+    .image2{
+        width: 50px;
+        padding: 10px; 
+        float: left;
+        padding-top: 20px;
+        //display: inline-block;
+    }
+
+    ion-list{
+        width: 100%;
+    }
+    form{
+        width: 100%;
+        
+    }
+    
+
+    
+    ion-select{
+    background-color: #f2f2f2;
+    padding: 5px 10px;
+    width: 200px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 30px;   
+    text-align: center;
+    }
+}
+}

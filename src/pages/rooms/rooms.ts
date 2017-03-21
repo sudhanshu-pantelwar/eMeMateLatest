@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { Loginprovider } from '../../providers/loginprovider'
+import { NavController, NavParams, App } from 'ionic-angular';
+import { Loginprovider } from '../../providers/loginprovider';
+import { DevicesPage } from '../devices/devices';
+
 /*
   Generated class for the Rooms page.
 
@@ -16,14 +18,14 @@ export class RoomsPage {
   hartscoJson: any;
   mushrooms: any;
   response1: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loginprovider1:Loginprovider) {
-    this.loginprovider1.roomJson().subscribe(
-      data => {console.log(data);
-      this.response = data;
-      this.response = JSON.parse(this.response._body);
-      this.response1 = this.response;
-      console.log("databaadka", this.response1.rooms);
-      });
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loginprovider1:Loginprovider, public appCtrl: App) {
+    // this.loginprovider1.roomJson().subscribe(
+    //   data => {console.log(data);
+    //   this.response = data;
+    //   this.response = JSON.parse(this.response._body);
+    //   this.response1 = this.response;
+    //   console.log("databaadka", this.response1.rooms);
+    //   });
     this.hartscoJson = { "full": 1, "version": "*1.7.2139*", "model": "Sercomm NA301", "zwave_heal": 1, "temperature": "C", "skin": "mios", "serial_number": "45200488", "fwd1": "vera-us-oem-relay31.mios.com", "fwd2": "vera-us-oem-relay12.mios.com", "mode": 1, "sections": [ { "name": "My Home", "id": 1 } ], 
     "rooms": [ { "name": "Dining Room", "id": 2, "section": 1 }, 
                { "name": "Family Room", "id": 3, "section": 1 }, 
@@ -55,34 +57,84 @@ export class RoomsPage {
     console.log('ionViewDidLoad RoomsPage');
   }
 
+  ngOnInit(){
+    this.loginprovider1.roomJson().subscribe(
+      data => {console.log(data);
+      this.response = data;
+      this.response = JSON.parse(this.response._body);
+      this.response1 = this.response;
+      console.log("databaadka", this.response1.rooms);
+      });
+  }
+
+ ionViewDidEnter() {
+        console.log("dfasdfasdfasdfadsfadsfadsfadsfadsfdsafa");
+      this.loginprovider1.roomJson().subscribe(
+      data => {console.log(data);
+      this.response = data;
+      this.response = JSON.parse(this.response._body);
+      this.response1 = this.response;
+      console.log("databaadka", this.response1.rooms);
+      }); 
+
+      
+      // You can execute what you want here and it will be executed right before you enter the view
+    }
+ionViewWillEnter(){
+  console.log('ionViewWillEnter RoomsPage');
+}
+
+ionViewWillLeave(){
+  console.log('ionViewWillLeave RoomsPage');
+}
+
+ionViewDidLeave(){
+  console.log('ionViewDidLeave RoomsPage');
+}
+
+ionViewWillUnload(){
+  console.log('ionViewWillUnload RoomsPage');
+}
+
+ionViewCanEnter(){
+  console.log('ionViewCanEnter RoomsPage');
+}
+
+ionViewCanLeave(){
+  console.log('ionViewCanLeave RoomsPage');
+}
   showDevices(){
     this.loginprovider1.roomJson().subscribe(
       data => {console.log(data);
       this.response = data;
       });
   }
+
   clickOnRoom(id){
     console.log(id);
     console.log(this.mushrooms);
+    this.appCtrl.getRootNav().push(DevicesPage, {
+      'id': id
+    });
   }
 
-  onDevice(evt,name){
-    var switchValue;
-    console.log(evt.checked,name);
-    // var ipAddress = localStorage.getItem('ipAddress');
-    // console.log(ipAddress);
+  // onDevice(evt,name){
+  //   var switchValue;
+  //   console.log(evt.checked,name);
+  //   // var ipAddress = localStorage.getItem('ipAddress');
+  //   // console.log(ipAddress);
   
-    if(evt.checked == true){
-      switchValue = "1";
-      console.log("sdfasdf",switchValue)
-    }
-    if(evt.checked == false){
-      switchValue = "0";
-    }
+  //   if(evt.checked == true){
+  //     switchValue = "1";
+  //     console.log("sdfasdf",switchValue)
+  //   }
+  //   if(evt.checked == false){
+  //     switchValue = "0";
+  //   }
 
-    this.loginprovider1.switchOn(switchValue, name).subscribe(
-      data => {console.log(data);
-      //this.response = data;
-    })
-  }
+  //   this.loginprovider1.switchOn(switchValue, name).subscribe(
+  //     data => {console.log(data);
+  //     //this.response = data;
+  //   })
+  // }
 }

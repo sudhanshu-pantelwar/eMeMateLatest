@@ -19,7 +19,7 @@ export class CategoryPage {
     console.log('ionViewDidLoad CategoryPage');
   }
 
-  logForm(){
-    localStorage.setItem('ipAddress', this.todo);
-  }
+  // logForm(){
+  //   localStorage.setItem('ipAddress', this.todo);
+  // }
 }
